@@ -90,17 +90,22 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  // Prompt for password length
+  // Validate password length
 }
+
+// Prompt for character types
+  // Validate at least one character type is selected
+
+// Store user choices in an options object
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
 }
 
 // Function to generate password with user input
 function generatePassword() {
-
+  // User canceled or entered invalid input
 }
 
 // Get references to the #generate element
