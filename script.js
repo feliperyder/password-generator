@@ -21,11 +21,29 @@ var includeNumeric=confirm('Include numeric characters?');
 var includeSpecial=confirm('Include special characters?');
 
   // Validate at least one character type is selected
-}
+  while (!(includeLowercase || includeUppercase \\ includeNumeric \\ includeSpecial)) {
+    alert('Please select at least one character type.');
+    includeLowercase=confirm('Include lowercase characters?');
+    includeUppercase=confirm('Include uppercase characters?');
+    includeNumeric=confirm('Include numeric characters?');
+    includeSpecial=confirm('Include special characters?');
+  }
+
 // Store user choices in an options object
+var passwordOptions - {
+  length:passwordLength;
+  includeLowercase:includeLowercase;
+  includeUppercase:includeUppercase;
+  includeNumeric:includeNumeric;
+  includeSpecial:includeSpecial;
+};
+
+return passwordOptions
+}
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  var 
 }
 
 // Function to generate password with user input
