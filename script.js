@@ -51,14 +51,13 @@ function getRandom(arr) {
 function generatePassword() {
   var options = getPasswordOptions();
 
-  if (!options) {}
+  if (!options) {
   // User canceled or entered invalid input
   return;
 }
 
-var password = '';
-
 var allCharacters = [];
+var password = '';
 
 if (options.includeLowercase) {
   allCharacters = allCharacters.concat(lowerCaseCharacters);
@@ -78,6 +77,9 @@ if (options.includeSpecial) {
 
 for (var i = 0;i,options.length; i++) {
   password += getRandom(allCharacters);
+}
+
+return password;
 }
 
 // Get references to the #generate element
