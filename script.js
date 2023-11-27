@@ -9,9 +9,9 @@ function getPasswordOptions() {
   // Prompt for password length
   var passwordLength = parseInt(prompt('Enter how many characters you want your password to be (between 8 and 128).'));
   // Validate password length
-  while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
-    alert('Invalid password length (Must be between 8 and 128 characters).');
-    passwordLength = parseInt(prompt('Enter how many characters you want your password to be (between 8 and 128).'));
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+    alert('Please enter a valid password length between 8 and 128 characters.');
+    return;
 }
 
 // Prompt for character types
@@ -21,12 +21,9 @@ var includeNumeric=confirm('Include numeric characters?');
 var includeSpecial=confirm('Include special characters?');
 
   // Validate at least one character type is selected
-  while (!(includeLowercase || includeUppercase || includeNumeric || includeSpecial)) {
+  if (!(includeLowercase || includeUppercase || includeNumeric || includeSpecial)) {
     alert('Please select at least one character type.');
-    includeLowercase=confirm('Include lowercase characters?');
-    includeUppercase=confirm('Include uppercase characters?');
-    includeNumeric=confirm('Include numeric characters?');
-    includeSpecial=confirm('Include special characters?');
+    return { isValid: false };
   }
 
 // Store user choices in an options object
@@ -56,8 +53,8 @@ function generatePassword() {
   return;
 }
 
-var allCharacters = [];
-var password = '';
+var allCharacters=[];
+var password='';
 
 if (options.includeLowercase) {
   allCharacters = allCharacters.concat(lowerCaseCharacters);
@@ -75,7 +72,7 @@ if (options.includeSpecial) {
   allCharacters = allCharacters.concat(specialCharacters);
 }
 
-for (var i = 0;i,options.length; i++) {
+for (var i = 0; i < options.length; i++) {
   password += getRandom(allCharacters);
 }
 
