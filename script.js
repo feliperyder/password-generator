@@ -1,3 +1,7 @@
+// Password Generator Script
+// This script allows users to generate secure passwords with various options.
+// Author: Philip Hurst
+
 // Array of special characters to be included in password
 var specialCharacters = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
 var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -54,27 +58,27 @@ function generatePassword() {
   return;
   }
 
-  var allCharacters=[];
+  var selectedCharacters=[];
   var password='';
 
   if (options.includeLowercase) {
-    allCharacters = allCharacters.concat(lowerCaseCharacters);
+    selectedCharacters = selectedCharacters.concat(lowerCaseCharacters);
   }
 
   if (options.includeUppercase) {
-    allCharacters = allCharacters.concat(upperCaseCharacters);
+    selectedCharacters = selectedCharacters.concat(upperCaseCharacters);
   }
 
   if (options.includeNumeric) {
-    allCharacters = allCharacters.concat(numericCharacters);
+    selectedCharacters = selectedCharacters.concat(numericCharacters);
   }
 
   if (options.includeSpecial) {
-    allCharacters = allCharacters.concat(specialCharacters);
+    selectedCharacters = selectedCharacters.concat(specialCharacters);
   }
 
   for (var i = 0; i < options.length; i++) {
-    password += getRandom(allCharacters);
+    password += getRandom(selectedCharacters);
   }
 
   return password;

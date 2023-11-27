@@ -13,6 +13,7 @@ An application that an employee can use to generate a random password based on c
 ## Full Description
 
 This password generator is a web application that lets users create secure passwords. It prompts the user to enter the desired password length and then choose weather to include various character types; lowercase letters, uppercase letters, numbers, and special characters. The generated password is then displayed on the page.
+URL of deployed app:  https://feliperyder.github.io/password-generator/
 
 ## Features
 
