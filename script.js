@@ -43,7 +43,7 @@ return passwordOptions
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  var randomIndex = Math.floor(Math.random() * arr.lenght);
+  var randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
 
@@ -60,19 +60,19 @@ var password = '';
 
 var allCharacters = [];
 
-if options.includeLowercase {
+if (options.includeLowercase) {
   allCharacters = allCharacters.concat(lowerCaseCharacters);
 }
 
-if options.includeUppercase {
+if (options.includeUppercase) {
   allCharacters = allCharacters.concat(upperCaseCharacters);
 }
 
-if options.includeNumeric {
+if (options.includeNumeric) {
   allCharacters = allCharacters.concat(numericCharacters);
 }
 
-if options.includeSpecial {
+if (options.includeSpecial) {
   allCharacters = allCharacters.concat(specialCharacters);
 }
 
