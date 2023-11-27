@@ -74,6 +74,10 @@ if options.includeSpecial {
   allCharacters = allCharacters.concat(specialCharacters);
 }
 
+for (var i = 0;i,options.length; i++) {
+  password += getRandom(allCharacters);
+}
+
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
