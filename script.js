@@ -1,8 +1,8 @@
 // Array of special characters to be included in password
 var specialCharacters = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
 var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-var lowerCasedCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var upperCasedCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var lowerCaseCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var upperCaseCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -21,7 +21,7 @@ var includeNumeric=confirm('Include numeric characters?');
 var includeSpecial=confirm('Include special characters?');
 
   // Validate at least one character type is selected
-  while (!(includeLowercase || includeUppercase \\ includeNumeric \\ includeSpecial)) {
+  while (!(includeLowercase || includeUppercase || includeNumeric || includeSpecial)) {
     alert('Please select at least one character type.');
     includeLowercase=confirm('Include lowercase characters?');
     includeUppercase=confirm('Include uppercase characters?');
@@ -30,12 +30,12 @@ var includeSpecial=confirm('Include special characters?');
   }
 
 // Store user choices in an options object
-var passwordOptions - {
-  length:passwordLength;
-  includeLowercase:includeLowercase;
-  includeUppercase:includeUppercase;
-  includeNumeric:includeNumeric;
-  includeSpecial:includeSpecial;
+var passwordOptions = {
+  length:passwordLength,
+  includeLowercase:includeLowercase,
+  includeUppercase:includeUppercase,
+  includeNumeric:includeNumeric,
+  includeSpecial:includeSpecial
 };
 
 return passwordOptions
@@ -43,12 +43,35 @@ return passwordOptions
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  var 
+  var randomIndex = Math.floor(Math.random() * arr.lenght);
+  return arr[randomIndex];
 }
 
 // Function to generate password with user input
 function generatePassword() {
+  var options = getPasswordOptions();
+
+  if (!options) {}
   // User canceled or entered invalid input
+  return;
+}
+
+var allCharacters = [];
+
+if options.includeLowercase {
+  allCharacters = allCharacters.concat(lowerCaseCharacters);
+}
+
+if options.includeUppercase {
+  allCharacters = allCharacters.concat(upperCaseCharacters);
+}
+
+if options.includeNumeric {
+  allCharacters = allCharacters.concat(numericCharacters);
+}
+
+if options.includeSpecial {
+  allCharacters = allCharacters.concat(specialCharacters);
 }
 
 // Get references to the #generate element
