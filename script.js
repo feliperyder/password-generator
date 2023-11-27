@@ -56,6 +56,8 @@ function generatePassword() {
   return;
 }
 
+var password = '';
+
 var allCharacters = [];
 
 if options.includeLowercase {
