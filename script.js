@@ -8,17 +8,18 @@ var upperCaseCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'
 function getPasswordOptions() {
   // Prompt for password length
   var passwordLength = parseInt(prompt('Enter how many characters you want your password to be (between 8 and 128).'));
+  
   // Validate password length
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     alert('Please enter a valid password length between 8 and 128 characters.');
     return;
-}
+  }
 
-// Prompt for character types
-var includeLowercase=confirm('Include lowercase characters?');
-var includeUppercase=confirm('Include uppercase characters?');
-var includeNumeric=confirm('Include numeric characters?');
-var includeSpecial=confirm('Include special characters?');
+  // Prompt for character types
+  var includeLowercase=confirm('Include lowercase characters?');
+  var includeUppercase=confirm('Include uppercase characters?');
+  var includeNumeric=confirm('Include numeric characters?');
+  var includeSpecial=confirm('Include special characters?');
 
   // Validate at least one character type is selected
   if (!(includeLowercase || includeUppercase || includeNumeric || includeSpecial)) {
@@ -26,16 +27,16 @@ var includeSpecial=confirm('Include special characters?');
     return { isValid: false };
   }
 
-// Store user choices in an options object
-var passwordOptions = {
-  length:passwordLength,
-  includeLowercase:includeLowercase,
-  includeUppercase:includeUppercase,
-  includeNumeric:includeNumeric,
-  includeSpecial:includeSpecial
-};
+  // Store user choices in an options object
+  var passwordOptions = {
+    length:passwordLength,
+    includeLowercase:includeLowercase,
+    includeUppercase:includeUppercase,
+    includeNumeric:includeNumeric,
+    includeSpecial:includeSpecial
+  };
 
-return passwordOptions
+  return passwordOptions
 }
 
 // Function for getting a random element from an array
@@ -51,32 +52,32 @@ function generatePassword() {
   if (!options) {
   // User canceled or entered invalid input
   return;
-}
+  }
 
-var allCharacters=[];
-var password='';
+  var allCharacters=[];
+  var password='';
 
-if (options.includeLowercase) {
-  allCharacters = allCharacters.concat(lowerCaseCharacters);
-}
+  if (options.includeLowercase) {
+    allCharacters = allCharacters.concat(lowerCaseCharacters);
+  }
 
-if (options.includeUppercase) {
-  allCharacters = allCharacters.concat(upperCaseCharacters);
-}
+  if (options.includeUppercase) {
+    allCharacters = allCharacters.concat(upperCaseCharacters);
+  }
 
-if (options.includeNumeric) {
-  allCharacters = allCharacters.concat(numericCharacters);
-}
+  if (options.includeNumeric) {
+    allCharacters = allCharacters.concat(numericCharacters);
+  }
 
-if (options.includeSpecial) {
-  allCharacters = allCharacters.concat(specialCharacters);
-}
+  if (options.includeSpecial) {
+    allCharacters = allCharacters.concat(specialCharacters);
+  }
 
-for (var i = 0; i < options.length; i++) {
-  password += getRandom(allCharacters);
-}
+  for (var i = 0; i < options.length; i++) {
+    password += getRandom(allCharacters);
+  }
 
-return password;
+  return password;
 }
 
 // Get references to the #generate element
